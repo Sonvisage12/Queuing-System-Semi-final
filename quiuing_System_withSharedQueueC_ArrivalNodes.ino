@@ -90,6 +90,7 @@ void onDataRecv(const esp_now_recv_info_t *recvInfo, const uint8_t *incomingData
 }
  else if (!item.addToQueue && item.removeFromQueue) {
             sharedQueue.removeByUID(String(item.uid));
+            sharedQueueC.removeByUID(String(item.uid));
             Serial.printf("🔁 Synchronized removal of UID: %s\n", item.uid); createMixedQueue(); 
              sharedQueue.print();sharedQueueA.print();sharedQueueB.print();sharedQueueC.print();
         }
